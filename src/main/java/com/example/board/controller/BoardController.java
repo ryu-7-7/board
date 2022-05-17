@@ -84,7 +84,7 @@ public class BoardController {
   @RequestMapping(value = "/edit", method = RequestMethod.GET)
   public String edit(@ModelAttribute("form")Post form,Model model) {
     Optional<Post> post = repository.findById(form.getId());
-    model.addAttribute("form", "update");
+    model.addAttribute("form", post);
     model = setList(model);
     model.addAttribute("path", "update");
     return "layout";
